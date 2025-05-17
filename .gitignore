@@ -1,0 +1,16 @@
+# Method 1: Using Out-File
+@'
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Lock file (safe to commit)
+!.terraform.lock.hcl
+
+# Sensitive files
+*.tfvars
+'@ | Out-File -FilePath .gitignore -Encoding utf8
+
+# Verify creation
+Get-Content .gitignore
